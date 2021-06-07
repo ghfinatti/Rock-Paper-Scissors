@@ -1,0 +1,61 @@
+body{
+    height: 100vh;
+    background: radial-gradient(circle, rgba(238,174,202,0.7) 0%, rgba(148,187,233,0.7) 100%);
+}
+
+.playerbuttons{
+    display: fixed;
+    background: linear-gradient(22deg, rgba(205,222,251,1) 0%, rgba(182,207,222,1) 100%);
+    border: 1.5px solid rgb(0, 0, 0);
+    height: 50vh;
+    width: 30vh;
+    min-height: auto;
+    max-width: auto;
+    margin: auto;
+    border-radius: 24px;
+    box-shadow: 0px 0px 5px black;
+}
+
+#rockimg{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10%;
+    transform: rotate(-30deg);
+}
+
+#rockimg:hover{
+    transform: scale(1.2) rotate(-10deg);
+    transition-duration: 0.5s;
+}
+
+#paperimg{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 25%;
+    transform: rotate(10deg);
+}
+
+#paperimg:hover{
+    transform: scale(1.2) rotate(30deg);
+    transition-duration: 0.5s;
+}
+
+#scissorsimg{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 25%;
+    transform: rotate(-40deg);
+}
+
+#scissorsimg:hover{
+    transform: scale(1.2) rotate(-15deg);
+    transition-duration: 0.5s;
+}
+
+.result{
+    display:flex;
+    background-color: black;
+    width: 20%;
+    margin: auto;
+    
+}

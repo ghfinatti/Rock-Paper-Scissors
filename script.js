@@ -12,55 +12,59 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-    
-    playerSelection = playerSelection.toLowerCase()
-
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors"){
-        alert("Not an option.")
-    }
 
     if (playerSelection === "rock"){
         if (computerSelection === "Rock!"){
-            return "It's a tie!"
+            console.log("It's a tie!")
         }
         else if (computerSelection === "Paper!"){
-            return "You lose!"
+            console.log("You lose!")
         }
         else if (computerSelection === "Scissors!"){
-            return "You win!"
+            console.log("You win!")
         }
     }
     
     if (playerSelection === "paper"){
         if (computerSelection === "Paper!"){
-            return "It's a tie!"
+            console.log("It's a tie!")
         }
         else if (computerSelection === "Rock!"){
-            return "You win!"
+            console.log("You win!")
         }
         else if (computerSelection === "Scissors!"){
-            return "You lose!"
+            console.log("You lose!")
         }
     }
 
     if (playerSelection === "scissors"){
         if (computerSelection === "Paper!"){
-            return "You win!"
+            console.log("You win!")
         }
         else if (computerSelection === "Scissors!"){
-            return "It's a tie!"
+            console.log("It's a tie!")
         }
         else if (computerSelection === "Rock!"){
-            return "You lose!"
+            console.log("You lose!")
         }
     }
 }
 
-function game(){
-    for (i = 0; i < 5; i++){
-        const playerSelection = prompt("Rock, Paper or Scissors?")
-        const computerSelection = computerPlay()
-        console.log(playRound(playerSelection, computerSelection));
-    }
-}
+const rockButton = document.querySelector('#rockimg');
+const paperButton = document.querySelector('#paperimg');
+const scissorsButton = document.querySelector('#scissorsimg');
 
+rockButton.addEventListener('click', function() {
+    const computerSelection = computerPlay();
+    playRound('rock', computerSelection);
+});
+
+paperButton.addEventListener('click', function() {
+    const computerSelection = computerPlay();
+    playRound('paper', computerSelection);
+});
+
+scissorsButton.addEventListener('click', function() {
+    const computerSelection = computerPlay();
+    playRound('scissors', computerSelection);
+});
