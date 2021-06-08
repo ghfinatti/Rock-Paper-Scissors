@@ -4,8 +4,9 @@ html{
 
 body{
     display: flex;
+    margin: 0;
     flex-direction: column-reverse;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     background: rgb(224,224,224);
@@ -45,14 +46,14 @@ background: linear-gradient(40deg, rgba(224,224,224,0.6096639339329482) 0%, rgba
 }
 
 #bot{
-    width: 13%;
-    height: 50%;
+    width: 20%;
+    height: 70%;
     padding-left: 25px;
 }
 
 #player{
-    width: 12%;
-    height: 45%;
+    width: 15%;
+    height: 60%;
     padding-right: 25px;
 }
 
@@ -62,6 +63,15 @@ background: linear-gradient(40deg, rgba(224,224,224,0.6096639339329482) 0%, rgba
 
 .img:active{
     transform: translateY(4px);
+}
+
+.title{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: 4%;
 }
 
 #winnerphrase{
