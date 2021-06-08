@@ -6,17 +6,23 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div class="footer">
+            <img id='giticon' src='images/github.png'>
+            <a id='myname' href="https://github.com/ghfinatti">Made by Gabriel Finatti</a>
+        </div>
         <div class="playerbuttons">
             <img id="rockimg" class="img" src="/images/rock.png">
             <img id="paperimg" class="img" src="/images/paper.png">
             <img id="scissorsimg" class="img" src="/images/scissors.png">
         </div>
+        <div id="winnerphrase">Make a choice:</div>
         <div class="result">
+            <img id="player" src="/images/human.png">
             <div class="score" id="playerscore">0</div>
-            <div class="score">:</div>
-            <div class="score">0</div>
+            <div class="score">-</div>
+            <div class="score" id="botscore">0</div>
+            <img id="bot" src="/images/bot.png">
         </div>
-        <div class="bot">BOT</div>
     </body>
     <script src="script.js"></script>
 </html>

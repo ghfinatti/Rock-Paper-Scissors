@@ -15,56 +15,79 @@ function playRound(playerSelection, computerSelection){
 
     if (playerSelection === "rock"){
         if (computerSelection === "Rock!"){
-            console.log("It's a tie!")
+            return "It's a tie!"
         }
         else if (computerSelection === "Paper!"){
-            console.log("You lose!")
+            return "You lose!"
         }
         else if (computerSelection === "Scissors!"){
-            console.log("You win!")
+            return "You win!"
         }
     }
     
     if (playerSelection === "paper"){
         if (computerSelection === "Paper!"){
-            console.log("It's a tie!")
+            return "It's a tie!"
         }
         else if (computerSelection === "Rock!"){
-            console.log("You win!")
+            return "You win!"
         }
         else if (computerSelection === "Scissors!"){
-            console.log("You lose!")
+            return "You lose!"
         }
     }
 
     if (playerSelection === "scissors"){
         if (computerSelection === "Paper!"){
-            console.log("You win!")
+            return "You win!"
         }
         else if (computerSelection === "Scissors!"){
-            console.log("It's a tie!")
+            return "It's a tie!"
         }
         else if (computerSelection === "Rock!"){
-            console.log("You lose!")
+            return "You lose!"
         }
     }
 }
 
-const rockButton = document.querySelector('#rockimg');
-const paperButton = document.querySelector('#paperimg');
-const scissorsButton = document.querySelector('#scissorsimg');
+function game(){
+    if (document.getElementById('playerscore').innerHTML == '5'){
+        document.getElementById('winnerphrase').textContent = "You Win :)";
+        document.getElementById('playerscore').innerHTML = "0";
+        document.getElementById('botscore').innerHTML = "0";
+    }
+    else if (document.getElementById('botscore').innerHTML == '5'){
+        document.getElementById('winnerphrase').textContent = "Bot Wins ):";
+        document.getElementById('playerscore').innerHTML = "0";
+        document.getElementById('botscore').innerHTML = "0";
+    }
+}
 
-rockButton.addEventListener('click', function() {
-    const computerSelection = computerPlay();
-    playRound('rock', computerSelection);
-});
+checkWinner = game();
 
-paperButton.addEventListener('click', function() {
-    const computerSelection = computerPlay();
-    playRound('paper', computerSelection);
-});
+const buttons = document.querySelectorAll('.img');
 
-scissorsButton.addEventListener('click', function() {
-    const computerSelection = computerPlay();
-    playRound('scissors', computerSelection);
-});
+for (const button of buttons){
+    button.addEventListener('click', function(){
+        
+        const computerSelection = computerPlay();
+        const result = playRound('rock', computerSelection);
+        
+        if (result === "You win!"){
+            document.getElementById('playerscore').innerHTML = 
+            parseInt(document.getElementById('playerscore').innerHTML) + 1;
+            document.getElementById('winnerphrase').textContent = "+1 Player!"
+        }
+        
+        else if (result === "You lose!"){
+            document.getElementById('botscore').innerHTML = 
+            parseInt(document.getElementById('botscore').innerHTML) + 1;
+            document.getElementById('winnerphrase').textContent = "+1 Bot!"
+        } 
+
+        else{
+            document.getElementById('winnerphrase').textContent = "Tie!"
+        }
+    game();
+    });
+}
