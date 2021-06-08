@@ -63,8 +63,6 @@ function game(){
     }
 }
 
-checkWinner = game();
-
 const buttons = document.querySelectorAll('.img');
 
 for (const button of buttons){
