@@ -50,8 +50,6 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const computerSelection = computerPlay()
-
 function game(){
     if (document.getElementById('playerscore').innerHTML == '5'){
         document.getElementById('winnerphrase').textContent = "5 points, you win :)";
@@ -65,75 +63,40 @@ function game(){
     }
 }
 
-const rockButton = document.querySelector('#rockimg')
-const paperButton = document.querySelector('#paperimg')
-const scissorsButton = document.querySelector('#scissorsimg')
+const buttons = document.querySelectorAll('.img')
 
-rockButton.addEventListener('click', function(){
-    
-    const computerSelection = computerPlay()
-    const result = playRound('rock', computerSelection);
-
-    if (result === "You win!"){
-        document.getElementById('playerscore').innerHTML = 
-        parseInt(document.getElementById('playerscore').innerHTML) + 1;
-        document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, +1 Player!`
-    }
-    
-    else if (result === "You lose!"){
-        document.getElementById('botscore').innerHTML = 
-        parseInt(document.getElementById('botscore').innerHTML) + 1;
-        document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, +1 Bot!`
-    } 
-
-    else{
-        document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, it's a tie!`
-    }
-    game();
-});
-
-paperButton.addEventListener('click', function(){
-    
+function logText(e){
+    const playerChoice = e.target.id
     const computerSelection = computerPlay();
-    const result = playRound('paper', computerSelection);
-
+    let result
+    
+    if (playerChoice == "rockimg") {
+        result = playRound('rock', computerSelection);
+    }
+    else if (playerChoice == "paperimg"){
+        result = playRound('paper', computerSelection);
+    }
+    else if (playerChoice == "scissorsimg"){
+        result = playRound('scissors', computerSelection);
+    }
+    
     if (result === "You win!"){
         document.getElementById('playerscore').innerHTML = 
         parseInt(document.getElementById('playerscore').innerHTML) + 1;
         document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, +1 Player!`
-    }
-    
+    }       
     else if (result === "You lose!"){
         document.getElementById('botscore').innerHTML = 
         parseInt(document.getElementById('botscore').innerHTML) + 1;
         document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, +1 Bot!`
-    } 
-
+    }    
     else{
         document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, it's a tie!`
     }
+
     game();
-});
 
-scissorsButton.addEventListener('click', function(){
-    
-    const computerSelection = computerPlay()
-    const result = playRound('scissors', computerSelection);
+};
 
-    if (result === "You win!"){
-        document.getElementById('playerscore').innerHTML = 
-        parseInt(document.getElementById('playerscore').innerHTML) + 1;
-        document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, +1 Player!`
-    }
-    
-    else if (result === "You lose!"){
-        document.getElementById('botscore').innerHTML = 
-        parseInt(document.getElementById('botscore').innerHTML) + 1;
-        document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, +1 Bot!`
-    } 
+buttons.forEach(button => button.addEventListener('click', logText));
 
-    else{
-        document.getElementById('winnerphrase').textContent = `Bot chose ${computerSelection}, it's a tie!`
-    }
-    game();
-});
