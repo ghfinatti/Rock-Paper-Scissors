@@ -4,4 +4,4 @@ This project is part of [The Odin Project's](https://www.theodinproject.com) cur
 
 It's the classic game of rock, paper, scissors played in the browser, using basic JavaScript. You can choose between the three options and play against a bot which chooses randomly. First to 5 points wins.
 
-You can see it live [here](https://ghfinatti.github.io/Rock-Paper-Scissors/).
+You can see it live [here](https://ghfinatti.github.io/rock-paper-scissors/).
